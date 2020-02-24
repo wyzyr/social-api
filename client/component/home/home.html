@@ -1,0 +1,37 @@
+<div class="container">
+    
+    <h1 class="section-title" style="margin-left: 10%">Welcome to Sporent</h1>
+    <h4>Create, manage and join sports events in you neighbourhood!!!!</h4>
+    <div class="row">
+     <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 text-center">
+         <div class="landing-panel center-block">
+             <h3 class="section-title">Sign-up</h3>
+        <h3> Enter username</h3>
+        <input id="newUserName" type="text" ng-model="newUser.username" maxlength="40"/>
+        
+        <h3> Enter your password</h3>
+        
+        <input id="newUserPass" type="password" ng-model ="newUser.user_password"/> <br> <br>
+        
+        <button id="createU" class="cta-button" ng-click="createUser(newUser)">Create User</button>
+             </div>
+    
+    </div>
+    
+    
+     <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 text-center">
+        <div class="landing-panel center-block">
+            <h3 class="section-title">Log in!</h3>
+        <h3> Your username </h3>
+        <input id="loginName" type="text" ng-model="existingUser.loginName" />
+        
+        <h3>Your password </h3>
+        
+        <input id="loginPass" type="password" ng-model="existingUser.loginPass"/> <br> <br>
+    
+    
+        <button id="loginBtn" class="cta-button" ng-click ="logUserIn(existingUser)">Log in</button>
+         </div>
+    </div>
+</div>
+</div>

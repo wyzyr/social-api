@@ -1,0 +1,24 @@
+/* This is for the Statuses Section */
+
+.statuses-section{
+    color: #fff;
+    margin-left: 170px;
+    margin-right: 220px;
+}
+
+.statuses-section textarea{
+    width: 350px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.status-post {
+    
+    border-radius: 10px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #fff;
+    display: inline-block;
+    margin-left: 10px;
+
+}

@@ -1,0 +1,128 @@
+<div>
+    
+    <top-nav>
+           
+    
+    </top-nav>
+
+    <div class="main-left-section">
+        
+        <div class="main-left-user text-center">
+            
+        
+           <i class="fas fa-user-circle fa-3x" aria-hidden="true"></i> <br/>
+                {{userData.username}}
+            <button class="main-text-button" ng-click="goProfile()">
+            <h5 class="section-title styled" style="font-size: 80%">View your profile</h5>
+                </button>
+            
+        </div>
+        
+        <div class="main-left-friends" ng-show="userFriends.length >0">
+        <h5 class="section-title text-center" style="font-size: 80%">Your Friends</h5>  
+            <div class="main-left-friend-scroll">
+                <ul class="main-friend-list">            
+                    <li ng-repeat="friend in userFriends">
+                        <i class="fas fa-user-circle " aria-hidden="true"></i>
+                     <button class="main-text-button styled" ng-click=" getUserProf(user.id); goUserProf()">
+                                    {{friend.username}} 
+                            </button>
+
+                    </li>            
+                </ul>            
+            </div>
+        </div>
+    </div>
+    
+    
+     <div class="main-right-section">
+         
+         <div class="main-right-requests" ng-show="friendRequests.length >0">
+          <h5 class="section-title text-center">Friend requests</h5>
+         <div class="main-left-friend-scroll">
+            <ul class="main-friend-requests">
+            <li ng-repeat="request in friendRequests">
+                 <i class="fas fa-user-circle" aria-hidden="true"></i>
+                 <button class="main-text-button styled" ng-click=" getUserProf(request.sender_id); goUserProf()">
+                                    {{request.username}} 
+                </button>
+
+                
+                
+                
+                
+                <button class="add-user-right-button" ng-click="respondToRequest(request.id, 'confirmed')">
+                    
+                <i class="fas fa-check-circle styled"></i>
+                
+                </button>
+                
+                
+                
+                
+                <!-- Decline-->
+                <button class = "add-user-right-button"   ng-click="respondToRequest(request.id)">
+                    
+                    
+                  <i class="fas fa-times-circle styled"></i>
+                
+                </button>
+                </li>
+            </ul>
+         </div>
+             </div>
+         
+         
+         
+         <div class="main-right-follow" ng-show="users.length > 0"> </div>
+          <h5 class="section-title text-center">Users to Add</h5>    
+         <div class="main-left-friend-scroll">
+            <ul class="main-friend-list">
+            
+                <li ng-repeat="user in users">
+   
+                    <i class="fas fa-user-circle " aria-hidden="true"></i>
+                     <button class="main-text-button styled" ng-click=" getUserProf(user.id); goUserProf()">
+                    {{user.username}} 
+                    </button>
+                    <button class="add-user-right-button" ng-click="addUser(user.id)">
+                    <i class="fas fa-plus-circle styled"></i>
+                    
+                    </button>
+                
+                </li>
+            
+            </ul>
+         </div>
+    </div>
+    
+<div ng-app="mapsApp" ng-controller="mainCtrl" class="outerdiv">
+
+    <div id="map_go"  ></div>
+    <div id="class" ng-repeat="marker in markers | orderBy : 'title'">
+         <a href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
+    </div>
+</div>
+
+    <div class="statuses-section text-center">
+        <h3 class ="section-title">  Update your status</h3>
+        <textarea ng-model="newPost"></textarea> <br/>
+        <button class="cta-button mt10" ng-click="submitPost(newPost)">Submit post</button> <br/>
+
+        <br>
+
+        <h3>Posts:</h3>
+
+        
+        <div class="status-post center-block" ng-repeat ="post in friendPosts">
+             <strong style="font-size: x-small">{{post.date_posted}}</strong>
+              <i class="fas fa-user-circle " aria-hidden="true"></i>
+                 <strong>{{post.username}}:</strong>
+                <p>{{post.post_content}}</p>    
+        </div>
+        
+
+
+        </div>
+</div>
+

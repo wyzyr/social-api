@@ -1,0 +1,119 @@
+/*Global Styles */
+body {
+    background-color: #774A8E;
+    font-family: 'Fira Sans', sans-serif;
+    padding-top: 50px;
+}
+
+.profile-text {
+        font-family: 'Fira Sans', sans-serif;
+}
+
+.section-title {
+    
+        font-family: 'Bungee'
+}
+
+input, textarea{
+    color: #000;
+}
+
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.styled {
+    
+    color: white;
+    
+}
+
+
+.styled:hover {
+    
+    color: aqua; 
+    
+}
+
+#map {
+    height:420px;
+    width:600px;
+}
+.infoWindowContent {
+    padding-left: 200px;
+    font-size:  14px !important;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+h2 {
+    margin-bottom:0;
+    margin-top: 0;
+}
+
+#outerdiv {border: 1px solid blue; width: 50%; height: 50%; position: relative; top: -50px; text-align:center}
+
+#map_go {border: 1px solid white; width: 60%; height: 50%; margin:0px auto; text-align: center}
+
+.profile-main {
+    
+    
+    
+}
+
+.user-details{
+     max-height: 500;
+    transition: 1.2s;
+    overflow: hidden;
+    
+}
+
+.user-details.hidden {
+        max-height: 0;
+}
+.user-password-change {
+    max-height: 500;
+    transition: 1.2s;
+    overflow: hidden;
+    
+}
+.user-password-change.hidden {
+      max-height: 0;
+}
+.submit-details {
+    min-width: 100px;
+    background-color: #774A8E;
+    color: #fff;
+    border: 1px solid #fff;
+    margin-top: 20px;
+    font-family: 'Bungee';
+    max-height: 200;
+    transition: .5s;
+    overflow: hidden;
+}
+.submit-detailss {
+    min-width: 164px;
+    background-color: #774A8E;
+    color: #fff;
+    border: 1px solid #fff;
+    margin-top: 20px;
+    font-family: 'Bungee';
+    max-height: 200;
+    transition: .5s;
+    overflow: hidden;
+}
+
+.submit-details.hidden {
+    max-height: 0;
+    max-width: 0;
+    min-width: 0;
+    border: none;
+}
+.submit-detailss.hidden {
+    max-height: 0;
+    max-width: 0;
+    min-width: 0;
+    border: none;
+}
+
+

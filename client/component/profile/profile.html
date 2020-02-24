@@ -1,0 +1,166 @@
+<div>
+    
+    <top-nav>
+           
+    
+    </top-nav>
+
+    <div class="main-left-section">
+        
+        <div class="main-left-user text-center">
+            
+        
+           <i class="fas fa-user-circle fa-3x" aria-hidden="true"></i> <br/>
+                {{userData.username}}
+            <button class="main-text-button">
+            <h5 class="section-title styled" style="font-size: 80%">View your profile</h5>
+                </button>
+            
+        </div>
+        
+        <div class="main-left-friends" ng-show="userFriends.length >0">
+        <h5 class="section-title text-center" style="font-size: 80%">Your Friends</h5>  
+            <div class="main-left-friend-scroll">
+                <ul class="main-friend-list">            
+                    <li ng-repeat="friend in userFriends">
+                        <i class="fas fa-user-circle " aria-hidden="true"></i>
+                         <button class="main-text-button styled" ng-click=" getUserProf(user.id); goUserProf()">
+                                    {{friend.username}} 
+                         </button>
+                    </li>            
+                </ul>            
+            </div>
+        </div>
+    </div>
+    
+    
+     <div class="main-right-section" ng-controller = "profCtrl">
+         
+         <div class="main-right-requests" ng-show="friendRequests.length >0">
+          <h5 class="section-title text-center">Friend requests</h5>
+         <div class="main-left-friend-scroll">
+            <ul class="main-friend-requests">
+            <li ng-repeat="request in friendRequests">
+                 <i class="fas fa-user-circle" aria-hidden="true"></i>
+                 <button class="main-text-button styled" ng-click=" getUserProf(user.id); goUserProf()">
+                 {{request.username}} 
+                 </button>
+                
+                
+                
+                
+                <button class="add-user-right-button" ng-click="respondToRequest(request.id, 'confirmed')">
+                    
+                <i class="fas fa-check-circle styled"></i>
+                
+                </button>
+                
+                
+                
+                
+                <!-- Decline-->
+                <button class = "add-user-right-button"   ng-click="respondToRequest(request.id)">
+                    
+                    
+                  <i class="fas fa-times-circle styled"></i>
+                
+                </button>
+                </li>
+            </ul>
+         </div>
+             </div>
+         
+         
+         
+         <div class="main-right-follow" ng-show="users.length > 0"> </div>
+          <h5 class="section-title text-center">Users to Add</h5>    
+         <div class="main-left-friend-scroll">
+            <ul class="main-friend-list">
+            
+                <li ng-repeat="user in users">
+                    <i class="fas fa-user-circle " aria-hidden="true"></i>
+                  <button class="main-text-button styled" ng-click=" getUserProf(user.id); goUserProf()">
+                    {{user.username}} 
+                    </button>
+                    
+                    <button class="add-user-right-button" ng-click="addUser(user.id)">
+                    <i class="fas fa-plus-circle styled"></i>
+                    
+                    </button>
+                
+                </li>
+            
+            </ul>
+         </div>
+    </div>
+    
+    <div class="outerdiv" style="text-align: center; color: white" >
+        <div class = "row">
+             <div class="col-lg-12 col-md-5 col-sm-6 col-xs-12 text-left" style="margin-left: 175px">
+                 <button class="profile-icon-button" ng-click="goMain()">
+              <i class="fas fa-angle-double-left styled fa-2x"  style="text-align: left;"></i> <br/>
+            </button>
+            </div>
+            
+            
+            <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 text-center" style="margin-left: 175px">
+                
+                 
+  
+                
+            <i class="fas fa-user-circle fa-3x styled" aria-hidden="true" ></i> <br/>
+            <div class="text-left">
+                <strong>
+                <h5 class="profile-text" style="font-size:  95%; padding-left: 100px">
+                  Username: {{userData.username}}  <br/>
+               Display name: "{{userData.display_name}}" <br/>
+                
+                Full name: {{userData.first_name}} {{userData.last_name}} <br/> <br/>
+               Rating: {{userData.rating}}  <i class="fas fa-star styled"></i> <br/>
+                (max:5)
+                        </h5></strong>
+                <button class="submit-detailss center-block" ng-class="{'hidden': showButt}" ng-click="showPass = !showPass; showBut = !showBut">Change password</button>
+                <button class="submit-details center-block" ng-class="{'hidden': showBut}" ng-click= "showEdit = !showEdit; showButt = !showButt" >Change details</button>
+            </div>
+            
+            </div>
+            <div class="col-lg-6 col-md-5 col-sm-6 col-xs-12 text-center" >
+                <div class="user-details" style="padding-right: 225px;" ng-class="{ 'hidden': !showEdit}">
+                Username: <input type="text" ng-model="changeUsername" style="margin-top: 10px"> <br/>
+                Display name: <input type="text" ng-model="changeDisplay" style="margin-top: 10px; margin-right: 23px"> <br/>
+                First name: <input type="text" ng-model="changeFirstName" style="margin-top: 10px"> <br/>
+                Last name: <input type="text" ng-model="changeLastName" style="margin-top: 10px"> <br/>
+                </div>
+                <div class=" user-password-change" ng-class="{ 'hidden': !showPass}" style="margin-right: 275px">
+                Current Password: <input type="text" style="margin-top: 10px"> <br/>
+                New password: <input type="text" style="margin-top: 10px; margin-left: 25px"> <br/>
+                Confirm password: <input type="text" style="margin-top: 10px"> <br/>
+                               
+
+            </div>
+                <div ng-if="showEdit">
+             <button class="cta-button center-block submit-details" style="margin-left: 100px" ng-click="changeDetails(changeUsername, changeDisplay, changeFirstName,changeLastName);" >Submit</button>
+                </div>
+            <div ng-if="showPass">
+            <button class="cta-button center-block submit-details" style="margin-left: 100px">Change pass</button>
+           </div>
+        </div>
+            <br/>
+            <br/>
+            
+            
+            
+    <div class="col-lg-9 col-md-5 col-sm-6 col-xs-12 statuses-section" style="margin-top: 50px; margin-right: 380px" >
+        <h3>Comments:</h3>
+        <div class="status-post text-center" ng-repeat ="comment in friendComment">
+             <strong style="font-size: x-small">{{comment.date_posted}}</strong>
+              <i class="fas fa-user-circle " aria-hidden="true"></i>
+                 <strong>{{comment.username}}:</strong>
+                <p>{{comment.comment}}</p> <br/>
+                <p style="text-align: left" data-ng-init="updateRating(avg)">Rating: {{comment.rating}}</p>
+            </div>
+        </div>
+    
+    
+    </div>
+</div>
